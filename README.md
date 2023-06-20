@@ -1,0 +1,2 @@
+# vottingApp
+Descentralized votting application 
