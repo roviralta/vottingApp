@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import detectEthereumProvider from "@metamask/detect-provider";
 import { useHistory } from "react-router";
+import Account from "./Account";
 
 const ConnectButton = () => {
     const [hasProvider, setHasProvider] = useState<boolean | null>(null);
@@ -49,18 +50,25 @@ const ConnectButton = () => {
         history.push("/voter");
     };
 
-    return (
-        <div slot="end">
-            {window.ethereum?.isMetaMask &&
-                wallet.accounts.length < 1 /* Updated */ && (
-                    <button onClick={handleConnect}>Connect MetaMask</button>
-                )}
-
-            {/*  {wallet.accounts.length > 0 && (
-                <div>Account: {wallet.accounts[0]}</div>
-            )} */}
-        </div>
-    );
+    if (wallet.accounts.length <= 0) {
+        return (
+            <div slot="end">
+                {window.ethereum?.isMetaMask &&
+                    wallet.accounts.length < 1 /* Updated */ && (
+                        <button onClick={handleConnect}>
+                            Connect MetaMask
+                        </button>
+                    )}
+                {console.log("no hi ha compte")}
+            </div>
+        );
+    } else {
+        return (
+            <div slot="end">
+                <Account wallet={wallet.accounts[0]}></Account>
+            </div>
+        );
+    }
 };
 
 export default ConnectButton;

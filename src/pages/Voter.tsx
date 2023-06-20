@@ -1,5 +1,4 @@
 import {
-    IonButton,
     IonContent,
     IonHeader,
     IonPage,
@@ -12,8 +11,7 @@ import {
 } from "@ionic/react";
 import "./Home.css";
 import ConnectButton from "../components/ConnectButton";
-
-const Voter: React.FC = () => {
+const Voter = () => {
     return (
         <IonPage>
             <IonHeader>
