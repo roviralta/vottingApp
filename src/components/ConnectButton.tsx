@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import detectEthereumProvider from "@metamask/detect-provider";
 import { useHistory } from "react-router";
 import Account from "./Account";
+import { IonButton } from "@ionic/react";
 
 const ConnectButton = () => {
     const [hasProvider, setHasProvider] = useState<boolean | null>(null);
@@ -55,11 +56,10 @@ const ConnectButton = () => {
             <div slot="end">
                 {window.ethereum?.isMetaMask &&
                     wallet.accounts.length < 1 /* Updated */ && (
-                        <button onClick={handleConnect}>
+                        <IonButton onClick={handleConnect}>
                             Connect MetaMask
-                        </button>
+                        </IonButton>
                     )}
-                {console.log("no hi ha compte")}
             </div>
         );
     } else {
