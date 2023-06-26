@@ -6,6 +6,7 @@ import {
     IonCardContent,
     IonButton,
 } from "@ionic/react";
+import "../pages/variables.css";
 
 interface Candidate {
     id: number;
@@ -25,11 +26,20 @@ const Candidate: React.FC<PropCandidate> = ({ candidates }) => {
                 {candidates.map((candidate) => (
                     <IonCol key={candidate.id} size="6" size-sm="4" size-md="3">
                         <IonCard>
-                            <img
-                                src={candidate.imageUrl}
-                                alt={candidate.name}
-                            />
                             <IonCardContent>
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        justifyContent: "center",
+                                    }}
+                                >
+                                    <img
+                                        id="candidateImage"
+                                        src={candidate.imageUrl}
+                                        alt={candidate.name}
+                                    />
+                                </div>
+
                                 <h3>{candidate.name}</h3>
                                 <p>{candidate.description}</p>
                             </IonCardContent>

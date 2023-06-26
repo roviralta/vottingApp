@@ -10,7 +10,7 @@ import {
     IonCardHeader,
     IonCardContent,
 } from "@ionic/react";
-import "./Home.css";
+import "./variables.css";
 import ConnectButton from "../components/ConnectButton";
 
 const Home: React.FC = () => {
