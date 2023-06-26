@@ -7,6 +7,7 @@ import {
     IonButton,
 } from "@ionic/react";
 import "../pages/variables.css";
+import Info from "../components/Info";
 
 interface Candidate {
     id: number;
@@ -40,10 +41,10 @@ const Candidate: React.FC<PropCandidate> = ({ candidates }) => {
                                     />
                                 </div>
 
-                                <h3>{candidate.name}</h3>
-                                <p>{candidate.description}</p>
+                                <h1>{candidate.name}</h1>
+                                <h2>{candidate.description}</h2>
                             </IonCardContent>
-                            <IonButton fill="clear">Vote</IonButton>
+                            <Info candidate={candidate}></Info>
                         </IonCard>
                     </IonCol>
                 ))}

@@ -5,7 +5,7 @@ import {
     IonTitle,
     IonToolbar,
 } from "@ionic/react";
-import "./Home.css";
+import "./variables.css";
 import ConnectButton from "../components/ConnectButton";
 import Candidate from "../components/Candidate";
 import pedro from "../assets/PedroSanchez.jpg";
