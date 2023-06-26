@@ -6,6 +6,7 @@ import {
     IonHeader,
     IonTitle,
     IonToolbar,
+    useIonActionSheet,
 } from "@ionic/react";
 
 interface Candidate {
@@ -20,6 +21,7 @@ interface PropInfo {
 
 const Info: React.FC<PropInfo> = ({ candidate }) => {
     const [showPopup, setShowPopup] = useState(false);
+    const [present] = useIonActionSheet();
 
     const openPopup = () => {
         setShowPopup(true);
@@ -35,17 +37,30 @@ const Info: React.FC<PropInfo> = ({ candidate }) => {
                 Info
             </IonButton>
 
-            <IonModal isOpen={showPopup} onDidDismiss={closePopup}>
+            <IonModal
+                id="infomodal"
+                isOpen={showPopup}
+                onDidDismiss={closePopup}
+            >
                 <IonHeader>
                     <IonToolbar>
                         <IonTitle>
                             Political party "{candidate.description}"
                         </IonTitle>
+                        <IonButton fill="clear" slot="end" onClick={closePopup}>
+                            Close
+                        </IonButton>
                     </IonToolbar>
                 </IonHeader>
                 <IonContent>
-                    <p>This will show tha strong keys about it</p>
+                    <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Quas libero nam eaque ab commodi quis eveniet, a
+                        veritatis. Ipsa, eos sed. A amet sint voluptatibus,
+                        dolores ut tempora quos aliquam.
+                    </p>
                 </IonContent>
+                <IonButton fill="clear">Vote</IonButton>
             </IonModal>
         </div>
     );

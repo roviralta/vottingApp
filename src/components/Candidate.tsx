@@ -5,6 +5,7 @@ import {
     IonCard,
     IonCardContent,
     IonButton,
+    IonFooter,
 } from "@ionic/react";
 import "../pages/variables.css";
 import Info from "../components/Info";
@@ -44,7 +45,18 @@ const Candidate: React.FC<PropCandidate> = ({ candidates }) => {
                                 <h1>{candidate.name}</h1>
                                 <h2>{candidate.description}</h2>
                             </IonCardContent>
-                            <Info candidate={candidate}></Info>
+                            <div
+                                style={{
+                                    display: "flex",
+                                    justifyContent: "space-between",
+                                }}
+                            >
+                                {" "}
+                                <Info candidate={candidate}></Info>
+                                <IonButton fill="clear" slot="end">
+                                    Vote
+                                </IonButton>
+                            </div>
                         </IonCard>
                     </IonCol>
                 ))}
