@@ -48,7 +48,7 @@ const ConnectButton = () => {
             method: "eth_requestAccounts",
         });
         updateWallet(accounts);
-        history.push("/voter");
+        history.push("/home");
     };
 
     if (wallet.accounts.length <= 0) {
