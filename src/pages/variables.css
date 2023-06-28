@@ -43,13 +43,13 @@
     text-align: justify;
 }
 
-.top {
-    background-color: black;
-}
-
 .footer-div {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: black;
+}
+
+.header-div {
+    display: flex;
 }

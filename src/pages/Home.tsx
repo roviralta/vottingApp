@@ -5,10 +5,6 @@ import {
     IonPage,
     IonTitle,
     IonToolbar,
-    IonCard,
-    IonCardTitle,
-    IonCardHeader,
-    IonCardContent,
     IonFooter,
     IonIcon,
 } from "@ionic/react";
@@ -25,6 +21,7 @@ const Home: React.FC = () => {
                     <ConnectButton></ConnectButton>
                 </IonToolbar>
             </IonHeader>
+
             <IonContent>
                 <div className="voting-container">
                     <h1 className="header">2023 Elections!</h1>

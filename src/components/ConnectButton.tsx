@@ -63,11 +63,7 @@ const ConnectButton = () => {
             </div>
         );
     } else {
-        return (
-            <div slot="end">
-                <Account wallet={wallet.accounts[0]}></Account>
-            </div>
-        );
+        return <Account wallet={wallet.accounts[0]}></Account>;
     }
 };
 
