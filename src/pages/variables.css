@@ -17,6 +17,7 @@
     text-align: center;
     font-family: "Open Sans";
     font-size: 75px;
+    padding-top: 10%;
 }
 
 .voting-container {
@@ -25,20 +26,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: yellow;
 }
 
 .description-container {
     height: 50%;
     display: flex;
-    background-color: black;
 }
 
 .description {
-    color: white;
     padding-left: 50px;
-    padding-right: 50%;
-    padding-top: 20px;
+    padding-right: 30%;
+    padding-top: 40px;
     font-family: courier;
     text-align: justify;
 }
@@ -47,9 +45,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
+    background-color: white;
 }
 
-.header-div {
-    display: flex;
+/*  ion-content::part(background) {
+     background-image: linear-gradient(to right top, yellow, ); 
+} 
+  */
+
+#icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding-right: 2%;
+}
+
+#toolbar {
+    height: 65px;
 }
