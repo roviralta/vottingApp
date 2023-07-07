@@ -1,20 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import {
-    IonButton,
     IonContent,
     IonHeader,
     IonImg,
     IonItem,
     IonList,
     IonMenu,
-    IonMenuToggle,
-    IonPage,
-    IonTitle,
     IonToolbar,
 } from "@ionic/react";
 import metamask from "../assets/MetaMask_Fox.svg.png";
 
 const Menu: React.FC = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
+    const closeMenu = () => {
+        setIsMenuOpen(false);
+    };
+
     return (
         <>
             {" "}
@@ -22,7 +28,11 @@ const Menu: React.FC = () => {
                 <IonHeader>
                     {" "}
                     <IonToolbar id="toolbarMenu">
-                        <IonImg src={metamask} id="icon"></IonImg>
+                        <div style={{ display: "flex", flexDirection: "row" }}>
+                            {" "}
+                            <IonImg src={metamask} id="icon"></IonImg>
+                            <h3>Menu</h3>
+                        </div>
                     </IonToolbar>
                 </IonHeader>
                 <IonContent>

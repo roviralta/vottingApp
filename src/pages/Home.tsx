@@ -3,20 +3,20 @@ import {
     IonContent,
     IonHeader,
     IonPage,
-    IonTitle,
     IonToolbar,
     IonFooter,
     IonIcon,
-    IonItem,
-    IonList,
-    IonMenu,
     IonMenuToggle,
+    IonFabButton,
+    IonFab,
 } from "@ionic/react";
 import "./variables.css";
 import ConnectButton from "../components/ConnectButton";
 import { logoInstagram, logoTwitter, logoFacebook } from "ionicons/icons";
 import { useHistory } from "react-router";
 import Menu from "../components/Menu";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 const Home: React.FC = () => {
     const history = useHistory();
@@ -25,15 +25,7 @@ const Home: React.FC = () => {
         <>
             <Menu></Menu>
             <IonPage id="main-content">
-                <IonHeader>
-                    <IonToolbar id="toolbar">
-                        {/* <IonTitle slot="end">Voting dApp</IonTitle> */}
-                        <IonMenuToggle slot="start">
-                            <ConnectButton></ConnectButton>
-                        </IonMenuToggle>
-                        <h2 slot="end">Voting dApp</h2>
-                    </IonToolbar>
-                </IonHeader>
+                <Header></Header>
                 <IonContent>
                     <div className="voting-container">
                         <h1 className="header">2023 Elections!</h1>
@@ -53,23 +45,16 @@ const Home: React.FC = () => {
                             confidentiality and integrity of your vote, trust us
                             and exercise your power as a citizen!
                         </p>
+                        <IonFab vertical="bottom" horizontal="end" slot="fixed">
+                            <IonFabButton
+                                onClick={() => history.push("/voter")}
+                            >
+                                VOTE!
+                            </IonFabButton>
+                        </IonFab>
                     </div>
                 </IonContent>
-                <IonFooter>
-                    <div className="footer-div">
-                        <IonButton fill="clear">
-                            <IonIcon icon={logoInstagram}></IonIcon>
-                        </IonButton>
-                        <IonButton fill="clear">
-                            {" "}
-                            <IonIcon icon={logoTwitter}></IonIcon>
-                        </IonButton>
-                        <IonButton fill="clear">
-                            {" "}
-                            <IonIcon icon={logoFacebook}></IonIcon>
-                        </IonButton>
-                    </div>
-                </IonFooter>
+                <Footer></Footer>
             </IonPage>
         </>
     );

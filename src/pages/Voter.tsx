@@ -1,10 +1,4 @@
-import {
-    IonContent,
-    IonHeader,
-    IonPage,
-    IonTitle,
-    IonToolbar,
-} from "@ionic/react";
+import { IonContent, IonPage } from "@ionic/react";
 import "./variables.css";
 import ConnectButton from "../components/ConnectButton";
 import Candidate from "../components/Candidate";
@@ -22,6 +16,9 @@ import roger from "../assets/rogerMontañola.jpg";
 import rufian from "../assets/rufian.jpeg";
 import yolanda from "../assets/yolandaDiaz.jpeg";
 import luis from "../assets/luisCampos.jpg";
+import Menu from "../components/Menu";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 const Voter = () => {
     const cands = [
@@ -112,17 +109,16 @@ const Voter = () => {
     ];
 
     return (
-        <IonPage>
-            <IonHeader>
-                <IonToolbar>
-                    <IonTitle slot="start">Voting dApp</IonTitle>
-                    <ConnectButton></ConnectButton>
-                </IonToolbar>
-            </IonHeader>
-            <IonContent fullscreen>
-                <Candidate candidates={cands}></Candidate>
-            </IonContent>
-        </IonPage>
+        <>
+            <Menu></Menu>
+            <IonPage id="main-content">
+                <Header></Header>
+                <IonContent fullscreen>
+                    <Candidate candidates={cands}></Candidate>
+                </IonContent>
+                <Footer></Footer>
+            </IonPage>
+        </>
     );
 };
 
