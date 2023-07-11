@@ -18,7 +18,7 @@ import {
 } from "ionicons/icons";
 import "../pages/variables.css";
 
-const Menu: React.FC = () => {
+function Menu() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -81,5 +81,5 @@ const Menu: React.FC = () => {
             </IonMenu>
         </>
     );
-};
+}
 export default Menu;

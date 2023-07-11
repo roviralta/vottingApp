@@ -1,7 +1,7 @@
 import { IonFooter, IonButton, IonIcon } from "@ionic/react";
 import { logoInstagram, logoTwitter, logoFacebook } from "ionicons/icons";
 
-const Footer = () => {
+function Footer() {
     return (
         <IonFooter>
             <div className="footer-div">
@@ -19,6 +19,6 @@ const Footer = () => {
             </div>
         </IonFooter>
     );
-};
+}
 
 export default Footer;

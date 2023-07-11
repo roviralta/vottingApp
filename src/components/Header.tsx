@@ -1,7 +1,7 @@
 import { IonHeader, IonToolbar, IonMenuToggle } from "@ionic/react";
 import ConnectButton from "./ConnectButton";
 
-const Header = () => {
+function Header() {
     return (
         <IonHeader>
             <IonToolbar id="toolbar">
@@ -12,6 +12,6 @@ const Header = () => {
             </IonToolbar>
         </IonHeader>
     );
-};
+}
 
 export default Header;

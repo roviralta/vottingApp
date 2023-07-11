@@ -9,17 +9,7 @@ import {
 } from "@ionic/react";
 import "../pages/variables.css";
 
-interface Candidate {
-    id: number;
-    name: string;
-    description: string;
-    imageUrl: string;
-}
-interface PropInfo {
-    candidate: Candidate;
-}
-
-const Info: React.FC<PropInfo> = ({ candidate }) => {
+function Info(props: any) {
     const [showPopup, setShowPopup] = useState(false);
 
     const openPopup = () => {
@@ -36,15 +26,11 @@ const Info: React.FC<PropInfo> = ({ candidate }) => {
                 Info
             </IonButton>
 
-            <IonModal
-
-                isOpen={showPopup}
-                onDidDismiss={closePopup}
-            >
+            <IonModal isOpen={showPopup} onDidDismiss={closePopup}>
                 <IonHeader>
                     <IonToolbar>
                         <IonTitle>
-                            Political party "{candidate.description}"
+                            Political party "{props.candidate.description}"
                         </IonTitle>
                         <IonButton fill="clear" slot="end" onClick={closePopup}>
                             Close
@@ -63,6 +49,6 @@ const Info: React.FC<PropInfo> = ({ candidate }) => {
             </IonModal>
         </div>
     );
-};
+}
 
 export default Info;

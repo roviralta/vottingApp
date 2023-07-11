@@ -9,22 +9,11 @@ import {
 import "../pages/variables.css";
 import Info from "../components/Info";
 
-interface Candidate {
-    id: number;
-    name: string;
-    description: string;
-    imageUrl: string;
-}
-
-interface PropCandidate {
-    candidates: Candidate[];
-}
-
-const Candidate: React.FC<PropCandidate> = ({ candidates }) => {
+function Candidate(props: { candidates: any[] }) {
     return (
         <IonGrid>
             <IonRow>
-                {candidates.map((candidate) => (
+                {props.candidates.map((candidate) => (
                     <IonCol key={candidate.id} size="6" size-sm="4" size-md="3">
                         <IonCard style={{ borderRadius: "5%" }}>
                             <IonCardContent>
@@ -62,6 +51,6 @@ const Candidate: React.FC<PropCandidate> = ({ candidates }) => {
             </IonRow>
         </IonGrid>
     );
-};
+}
 
 export default Candidate;

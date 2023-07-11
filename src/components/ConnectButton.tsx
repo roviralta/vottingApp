@@ -4,7 +4,7 @@ import { useHistory } from "react-router";
 import Account from "./Account";
 import { IonButton } from "@ionic/react";
 
-const ConnectButton = () => {
+function ConnectButton() {
     const [hasProvider, setHasProvider] = useState<boolean | null>(null);
     const initialState = { accounts: [] };
     const [wallet, setWallet] = useState(initialState);
@@ -65,6 +65,6 @@ const ConnectButton = () => {
     } else {
         return <Account wallet={wallet.accounts[0]}></Account>;
     }
-};
+}
 
 export default ConnectButton;
