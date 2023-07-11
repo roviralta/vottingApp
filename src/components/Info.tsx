@@ -6,8 +6,8 @@ import {
     IonHeader,
     IonTitle,
     IonToolbar,
-    useIonActionSheet,
 } from "@ionic/react";
+import "../pages/variables.css";
 
 interface Candidate {
     id: number;
@@ -21,7 +21,6 @@ interface PropInfo {
 
 const Info: React.FC<PropInfo> = ({ candidate }) => {
     const [showPopup, setShowPopup] = useState(false);
-    const [present] = useIonActionSheet();
 
     const openPopup = () => {
         setShowPopup(true);
@@ -38,7 +37,7 @@ const Info: React.FC<PropInfo> = ({ candidate }) => {
             </IonButton>
 
             <IonModal
-                id="infomodal"
+
                 isOpen={showPopup}
                 onDidDismiss={closePopup}
             >

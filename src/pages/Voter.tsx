@@ -85,7 +85,7 @@ const Voter = () => {
         {
             id: 10,
             name: "Critstina Valido",
-            description: "Coalici'on Canaria",
+            description: "Coalición Canaria",
             imageUrl: cristina,
         },
         {

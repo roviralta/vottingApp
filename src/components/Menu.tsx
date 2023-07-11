@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
     IonContent,
     IonHeader,
+    IonIcon,
     IonImg,
     IonItem,
     IonList,
@@ -9,6 +10,13 @@ import {
     IonToolbar,
 } from "@ionic/react";
 import metamask from "../assets/MetaMask_Fox.svg.png";
+import {
+    personCircleOutline,
+    settingsOutline,
+    informationCircleOutline,
+    barChartOutline,
+} from "ionicons/icons";
+import "../pages/variables.css";
 
 const Menu: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,10 +45,37 @@ const Menu: React.FC = () => {
                 </IonHeader>
                 <IonContent>
                     <IonList>
-                        <IonItem>Perfil</IonItem>
-                        <IonItem>Results</IonItem>
-                        <IonItem>Information</IonItem>
-                        <IonItem>Settings</IonItem>
+                        <IonItem>
+                            <IonIcon
+                                id="iconMenu"
+                                icon={personCircleOutline}
+                            ></IonIcon>
+                            Perfil
+                        </IonItem>
+                        <IonItem>
+                            {" "}
+                            <IonIcon
+                                id="iconMenu"
+                                icon={barChartOutline}
+                            ></IonIcon>
+                            Results
+                        </IonItem>
+                        <IonItem>
+                            {" "}
+                            <IonIcon
+                                id="iconMenu"
+                                icon={informationCircleOutline}
+                            ></IonIcon>
+                            Information
+                        </IonItem>
+                        <IonItem>
+                            {" "}
+                            <IonIcon
+                                id="iconMenu"
+                                icon={settingsOutline}
+                            ></IonIcon>
+                            Settings
+                        </IonItem>
                     </IonList>
                 </IonContent>
             </IonMenu>

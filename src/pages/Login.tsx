@@ -18,8 +18,8 @@ const Login: React.FC = () => {
         <IonPage>
             <IonHeader>
                 <IonToolbar>
-                    <IonTitle slot="end">Voting dApp</IonTitle>
                     <ConnectButton></ConnectButton>
+                    <IonTitle slot="end">Voting dApp</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent fullscreen>

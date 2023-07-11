@@ -53,10 +53,10 @@ const ConnectButton = () => {
 
     if (wallet.accounts.length <= 0) {
         return (
-            <div slot="end">
+            <div slot="start">
                 {window.ethereum?.isMetaMask &&
                     wallet.accounts.length < 1 /* Updated */ && (
-                        <IonButton onClick={handleConnect} slot="start">
+                        <IonButton onClick={handleConnect}>
                             Connect MetaMask
                         </IonButton>
                     )}

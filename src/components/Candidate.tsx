@@ -5,7 +5,6 @@ import {
     IonCard,
     IonCardContent,
     IonButton,
-    IonFooter,
 } from "@ionic/react";
 import "../pages/variables.css";
 import Info from "../components/Info";
@@ -27,7 +26,7 @@ const Candidate: React.FC<PropCandidate> = ({ candidates }) => {
             <IonRow>
                 {candidates.map((candidate) => (
                     <IonCol key={candidate.id} size="6" size-sm="4" size-md="3">
-                        <IonCard>
+                        <IonCard style={{ borderRadius: "5%" }}>
                             <IonCardContent>
                                 <div
                                     style={{

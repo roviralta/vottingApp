@@ -48,10 +48,9 @@
     background-color: white;
 }
 
-/*  ion-content::part(background) {
-     background-image: linear-gradient(to right top, yellow, ); 
-} 
-  */
+/* ion-content::part(background) {
+    background-image: linear-gradient(to right top, yellow);
+} */
 
 #icon {
     width: 40px;
@@ -63,4 +62,8 @@
 
 #toolbar {
     height: 65px;
+}
+
+#iconMenu {
+    padding-right: 5px;
 }

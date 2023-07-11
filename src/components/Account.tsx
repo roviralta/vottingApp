@@ -1,18 +1,4 @@
-import {
-    IonButton,
-    IonContent,
-    IonHeader,
-    IonIcon,
-    IonItem,
-    IonList,
-    IonMenu,
-    IonMenuButton,
-    IonMenuToggle,
-    IonPage,
-    IonTitle,
-    IonToolbar,
-} from "@ionic/react";
-import metamask from "../assets/MetaMask_Fox.svg.png";
+import { IonMenuButton } from "@ionic/react";
 interface PropAccount {
     wallet: string;
 }
