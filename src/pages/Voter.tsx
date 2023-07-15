@@ -1,4 +1,4 @@
-import { IonContent, IonPage } from "@ionic/react";
+import { IonCol, IonContent, IonGrid, IonPage, IonRow } from "@ionic/react";
 import "./variables.css";
 import ConnectButton from "../components/ConnectButton";
 import Candidate from "../components/Candidate";
@@ -114,7 +114,22 @@ const Voter = () => {
             <IonPage id="main-content">
                 <Header></Header>
                 <IonContent fullscreen>
-                    <Candidate candidates={cands}></Candidate>
+                    <IonGrid>
+                        <IonRow>
+                            {cands.map((candidate) => (
+                                <IonCol
+                                    key={candidate.id}
+                                    size="6"
+                                    size-sm="4"
+                                    size-md="3"
+                                >
+                                    <Candidate
+                                        candidate={candidate}
+                                    ></Candidate>
+                                </IonCol>
+                            ))}
+                        </IonRow>
+                    </IonGrid>
                 </IonContent>
                 <Footer></Footer>
             </IonPage>
