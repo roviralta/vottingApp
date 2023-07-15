@@ -8,7 +8,7 @@ import {
 } from "@ionic/react";
 import "../pages/variables.css";
 import Info from "../components/Info";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface Candidate {
     id: number;
@@ -45,7 +45,7 @@ function Candidate(props: { candidate: Candidate }) {
                         />
                     </div>
 
-                    <h2>
+                    <h2 className="candidate-name">
                         <b> {props.candidate.name}</b>
                     </h2>
                     <h3>{props.candidate.description}</h3>

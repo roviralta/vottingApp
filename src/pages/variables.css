@@ -71,3 +71,9 @@
 #candidateCard {
     border-radius: 5%;
 }
+
+.candidate-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
