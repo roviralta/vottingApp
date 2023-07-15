@@ -8,14 +8,30 @@ import {
 } from "@ionic/react";
 import "../pages/variables.css";
 import Info from "../components/Info";
+import { useState } from "react";
 
 function Candidate(props: { candidates: any[] }) {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
     return (
         <IonGrid>
             <IonRow>
                 {props.candidates.map((candidate) => (
                     <IonCol key={candidate.id} size="6" size-sm="4" size-md="3">
-                        <IonCard style={{ borderRadius: "5%" }}>
+                        <IonCard id="candidateCard" button onClick={openModal}>
+                            <Info
+                                candidate={candidate}
+                                isOpen={isModalOpen}
+                                onClose={closeModal}
+                            ></Info>
                             <IonCardContent>
                                 <div
                                     style={{
@@ -30,8 +46,10 @@ function Candidate(props: { candidates: any[] }) {
                                     />
                                 </div>
 
-                                <h1>{candidate.name}</h1>
-                                <h2>{candidate.description}</h2>
+                                <h2>
+                                    <b> {candidate.name}</b>
+                                </h2>
+                                <h3>{candidate.description}</h3>
                             </IonCardContent>
                             <div
                                 style={{
@@ -40,10 +58,10 @@ function Candidate(props: { candidates: any[] }) {
                                 }}
                             >
                                 {" "}
-                                <Info candidate={candidate}></Info>
+                                {/* <Info candidate={candidate}></Info>
                                 <IonButton fill="clear" slot="end">
                                     Vote
-                                </IonButton>
+                                </IonButton> */}
                             </div>
                         </IonCard>
                     </IonCol>

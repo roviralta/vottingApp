@@ -9,8 +9,14 @@ import {
 } from "@ionic/react";
 import "../pages/variables.css";
 
-function Info(props: any) {
-    const [showPopup, setShowPopup] = useState(false);
+interface MyModalProps {
+    isOpen: boolean;
+    onClose: () => void;
+    candidate: any;
+}
+
+const Info: React.FC<MyModalProps> = ({ isOpen, onClose, candidate }) => {
+    /*     const [showPopup, setShowPopup] = useState(false);
 
     const openPopup = () => {
         setShowPopup(true);
@@ -19,20 +25,20 @@ function Info(props: any) {
     const closePopup = () => {
         setShowPopup(false);
     };
-
+ */
     return (
         <div>
-            <IonButton fill="clear" onClick={openPopup}>
+            {/*   <IonButton fill="clear" onClick={openPopup}>
                 Info
-            </IonButton>
+            </IonButton> */}
 
-            <IonModal isOpen={showPopup} onDidDismiss={closePopup}>
+            <IonModal isOpen={isOpen} onDidDismiss={onClose}>
                 <IonHeader>
                     <IonToolbar>
                         <IonTitle>
-                            Political party "{props.candidate.description}"
+                            Political party "{candidate.description}"
                         </IonTitle>
-                        <IonButton fill="clear" slot="end" onClick={closePopup}>
+                        <IonButton fill="clear" slot="end" onClick={onClose}>
                             Close
                         </IonButton>
                     </IonToolbar>
@@ -49,6 +55,6 @@ function Info(props: any) {
             </IonModal>
         </div>
     );
-}
+};
 
 export default Info;

@@ -67,3 +67,7 @@
 #iconMenu {
     padding-right: 5px;
 }
+
+#candidateCard {
+    border-radius: 5%;
+}
