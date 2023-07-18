@@ -5,10 +5,8 @@ function Header() {
     return (
         <IonHeader>
             <IonToolbar id="toolbar">
-                <IonMenuToggle slot="start">
-                    <ConnectButton></ConnectButton>
-                </IonMenuToggle>
-                <h2 slot="end">Voting dApp</h2>
+                <ConnectButton></ConnectButton>
+                <h2 style={{ textAlign: "center" }}>Voting dApp</h2>
             </IonToolbar>
         </IonHeader>
     );

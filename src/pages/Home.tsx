@@ -9,14 +9,14 @@ import {
     IonMenuToggle,
     IonFabButton,
     IonFab,
+    IonBackButton,
 } from "@ionic/react";
 import "./variables.css";
-import ConnectButton from "../components/ConnectButton";
-import { logoInstagram, logoTwitter, logoFacebook } from "ionicons/icons";
 import { useHistory } from "react-router";
 import Menu from "../components/Menu";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import React from "react";
 
 const Home: React.FC = () => {
     const history = useHistory();
