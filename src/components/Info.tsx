@@ -24,12 +24,10 @@ interface MyModalProps {
 
 const Info: React.FC<MyModalProps> = ({ isOpen, onClose, candidate }) => {
     return (
-        <IonModal isOpen={isOpen} onDidDismiss={onClose}>
+        <IonModal id="example-modal" isOpen={isOpen} onDidDismiss={onClose}>
             <IonHeader>
                 <IonToolbar>
-                    <IonTitle>
-                        Political party "{candidate.description}"
-                    </IonTitle>
+                    <IonTitle>Political party {candidate.description}</IonTitle>
                     <IonButton fill="clear" slot="end" onClick={onClose}>
                         Close
                     </IonButton>

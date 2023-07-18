@@ -8,7 +8,6 @@ function ConnectButton() {
     const [hasProvider, setHasProvider] = useState<boolean | null>(null);
     const initialState = { accounts: [] };
     const [wallet, setWallet] = useState(initialState);
-    const history = useHistory();
 
     useEffect(() => {
         const refreshAccounts = (accounts: any) => {
@@ -48,7 +47,8 @@ function ConnectButton() {
             method: "eth_requestAccounts",
         });
         updateWallet(accounts);
-        history.push("/home");
+        /*         history.push("/home");
+         */
     };
 
     if (wallet.accounts.length <= 0) {

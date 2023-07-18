@@ -1,16 +1,4 @@
-import {
-    IonButton,
-    IonContent,
-    IonHeader,
-    IonPage,
-    IonToolbar,
-    IonFooter,
-    IonIcon,
-    IonMenuToggle,
-    IonFabButton,
-    IonFab,
-    IonBackButton,
-} from "@ionic/react";
+import { IonContent, IonPage, IonFabButton, IonFab } from "@ionic/react";
 import "./variables.css";
 import { useHistory } from "react-router";
 import Menu from "../components/Menu";

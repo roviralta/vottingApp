@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import {
     IonContent,
     IonHeader,
@@ -17,17 +16,10 @@ import {
     barChartOutline,
 } from "ionicons/icons";
 import "../pages/variables.css";
+import { useHistory } from "react-router";
 
 function Menu() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-
-    const closeMenu = () => {
-        setIsMenuOpen(false);
-    };
+    const history = useHistory();
 
     return (
         <>
@@ -35,8 +27,14 @@ function Menu() {
             <IonMenu contentId="main-content">
                 <IonHeader>
                     {" "}
-                    <IonToolbar id="toolbarMenu">
-                        <div style={{ display: "flex", flexDirection: "row" }}>
+                    <IonToolbar>
+                        <div
+                            style={{
+                                display: "flex",
+                                flexDirection: "row",
+                                height: "65px",
+                            }}
+                        >
                             {" "}
                             <IonImg src={metamask} id="icon"></IonImg>
                             <h3>Menu</h3>
@@ -45,14 +43,20 @@ function Menu() {
                 </IonHeader>
                 <IonContent>
                     <IonList>
-                        <IonItem>
+                        <IonItem
+                            button
+                            onClick={() => history.push("/Profile")}
+                        >
                             <IonIcon
                                 id="iconMenu"
                                 icon={personCircleOutline}
                             ></IonIcon>
                             Perfil
                         </IonItem>
-                        <IonItem>
+                        <IonItem
+                            button
+                            onClick={() => history.push("/Results")}
+                        >
                             {" "}
                             <IonIcon
                                 id="iconMenu"
@@ -60,7 +64,10 @@ function Menu() {
                             ></IonIcon>
                             Results
                         </IonItem>
-                        <IonItem>
+                        <IonItem
+                            button
+                            onClick={() => history.push("/Information")}
+                        >
                             {" "}
                             <IonIcon
                                 id="iconMenu"
@@ -68,7 +75,10 @@ function Menu() {
                             ></IonIcon>
                             Information
                         </IonItem>
-                        <IonItem>
+                        <IonItem
+                            button
+                            onClick={() => history.push("/Settings")}
+                        >
                             {" "}
                             <IonIcon
                                 id="iconMenu"

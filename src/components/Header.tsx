@@ -1,4 +1,4 @@
-import { IonHeader, IonToolbar, IonMenuToggle } from "@ionic/react";
+import { IonHeader, IonToolbar } from "@ionic/react";
 import ConnectButton from "./ConnectButton";
 
 function Header() {
