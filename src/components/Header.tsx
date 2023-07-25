@@ -6,7 +6,7 @@ function Header() {
         <IonHeader>
             <IonToolbar id="toolbar">
                 <ConnectButton></ConnectButton>
-                <h2 style={{ textAlign: "center" }}>Voting dApp</h2>
+                <h2 style={{ paddingLeft: "41%" }}>Voting dApp</h2>
             </IonToolbar>
         </IonHeader>
     );

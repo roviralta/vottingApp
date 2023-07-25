@@ -5,7 +5,7 @@ function Account(props: any) {
         <div style={{ display: "flex" }}>
             <IonMenuButton style={{ paddingTop: "5%" }}></IonMenuButton>
             <p slot="end" style={{ color: "black", paddingLeft: "5%" }}>
-                Account: {props.wallet.slice(0, 5)}
+                <b>Account: {props.wallet.slice(0, 5)}</b>
             </p>
         </div>
     );

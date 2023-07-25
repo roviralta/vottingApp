@@ -24,9 +24,8 @@ const Profile = () => {
         };
 
         const refreshChain = (chainId: any) => {
-            /* New */
-            setWallet((wallet) => ({ ...wallet, chainId })); /* New */
-        }; /* New */
+            setWallet((wallet) => ({ ...wallet, chainId }));
+        };
 
         const getProvider = async () => {
             const provider = await detectEthereumProvider({ silent: true });
@@ -38,7 +37,7 @@ const Profile = () => {
                 });
                 refreshAccounts(accounts);
                 window.ethereum.on("accountsChanged", refreshAccounts);
-                window.ethereum.on("chainChanged", refreshChain); /* New */
+                window.ethereum.on("chainChanged", refreshChain);
             }
         };
 
@@ -46,23 +45,20 @@ const Profile = () => {
 
         return () => {
             window.ethereum?.removeListener("accountsChanged", refreshAccounts);
-            window.ethereum?.removeListener(
-                "chainChanged",
-                refreshChain
-            ); /* New */
+            window.ethereum?.removeListener("chainChanged", refreshChain);
         };
     }, []);
 
     const updateWallet = async (accounts: any) => {
         const balance = formatBalance(
             await window.ethereum!.request({
-                /* New */ method: "eth_getBalance" /* New */,
-                params: [accounts[0], "latest"] /* New */,
+                method: "eth_getBalance",
+                params: [accounts[0], "latest"],
             })
-        ); /* New */
+        );
         const chainId = await window.ethereum!.request({
-            /* New */ method: "eth_chainId" /* New */,
-        }); /* New */
+            method: "eth_chainId",
+        });
         setWallet({ accounts, balance, chainId }); /* Updated */
     };
 
