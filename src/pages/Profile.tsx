@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { IonPage, IonContent } from "@ionic/react";
+import { IonPage, IonContent, IonImg } from "@ionic/react";
 import Header from "../components/Header";
 import { formatBalance, formatChainAsNum } from "../components/index";
 import detectEthereumProvider from "@metamask/detect-provider";
+import "./variables.css";
+import metamask from "../assets/MetaMask_Fox.svg.png";
 
 const Profile = () => {
     const [hasProvider, setHasProvider] = useState<boolean | null>(null);
@@ -66,16 +68,27 @@ const Profile = () => {
         <IonPage>
             <Header></Header>
             <IonContent>
-                <div>
-                    <h2>Your MetaMask Wallet Information:</h2>
-                    <p>Ethereum Account: {wallet.accounts[0]}</p>
+                <div className="profile-container">
+                    <IonImg src={metamask}></IonImg>
+                    <h2 style={{ color: "#333" }}>
+                        Your MetaMask Wallet Information:
+                    </h2>
+                    <p>
+                        <b>Ethereum Account: </b>
+                        {wallet.accounts[0]}
+                    </p>
+                    <div className="wallet-balance">
+                        Wallet Balance: {wallet.balance} ETH
+                    </div>
+                    <div className="profile">
+                        <b>Hex ChainId: </b>
+                        {wallet.chainId}
+                    </div>
+                    <div className="profile">
+                        <b> Numeric ChainId: </b>
+                        {formatChainAsNum(wallet.chainId)}
+                    </div>
                 </div>
-                <div>Wallet Balance: {wallet.balance} ETH</div> {/* New */}
-                <div>Hex ChainId: {wallet.chainId}</div> {/* New */}
-                <div>
-                    Numeric ChainId: {formatChainAsNum(wallet.chainId)}
-                </div>{" "}
-                {/* New */}
             </IonContent>
         </IonPage>
     );

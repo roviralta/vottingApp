@@ -100,3 +100,22 @@ ion-modal#example-modal {
     font-weight: bold;
     margin-top: 20px;
 }
+
+.profile-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.wallet-balance {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.profile {
+    margin-top: 12px;
+}
