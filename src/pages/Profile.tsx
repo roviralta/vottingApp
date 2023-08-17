@@ -73,12 +73,22 @@ const Profile = () => {
                     <h2 style={{ color: "#333" }}>
                         Your MetaMask Wallet Information:
                     </h2>
-                    <p>
-                        <b>Ethereum Account: </b>
+                    <b>Ethereum Account: </b>
+
+                    <div
+                        style={{
+                            paddingTop: "5px",
+                            paddingBottom: "20px",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                        }}
+                    >
                         {wallet.accounts[0]}
-                    </p>
+                    </div>
+
                     <div className="wallet-balance">
-                        Wallet Balance: {wallet.balance} ETH
+                        <b>Wallet Balance:</b> {wallet.balance} ETH
                     </div>
                     <div className="profile">
                         <b>Hex ChainId: </b>

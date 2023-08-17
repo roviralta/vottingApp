@@ -33,14 +33,20 @@ const Home: React.FC = () => {
                             confidentiality and integrity of your vote, trust us
                             and exercise your power as a citizen!
                         </p>
-                        <IonFab vertical="bottom" horizontal="end" slot="fixed">
-                            <IonFabButton
-                                onClick={() => history.push("/voter")}
-                            >
-                                VOTE!
-                            </IonFabButton>
-                        </IonFab>
                     </div>
+                    <IonFab
+                        vertical="bottom"
+                        horizontal="end"
+                        style={{
+                            position: "fixed",
+                            bottom: "8%",
+                            right: "5%",
+                        }}
+                    >
+                        <IonFabButton onClick={() => history.push("/voter")}>
+                            VOTE!
+                        </IonFabButton>
+                    </IonFab>
                 </IonContent>
                 <Footer></Footer>
             </IonPage>
