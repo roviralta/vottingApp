@@ -2,7 +2,7 @@
     "name": "votingDapp",
     "private": true,
     "version": "0.0.1",
-    "type": "module",
+    "type": "commonjs",
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
@@ -22,13 +22,14 @@
         "@metamask/detect-provider": "^2.0.0",
         "@types/react-router": "^5.1.20",
         "@types/react-router-dom": "^5.3.3",
-        "ethers": "^6.6.0",
+        "ethers": "^6.7.1",
         "ionicons": "^7.0.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-router": "^5.3.4",
         "react-router-dom": "^5.3.4",
-        "web3": "^4.0.1"
+        "truffle": "^5.11.2",
+        "web3": "^4.1.0"
     },
     "devDependencies": {
         "@capacitor/cli": "5.0.5",

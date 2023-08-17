@@ -1,6 +1,5 @@
 import { IonCol, IonContent, IonGrid, IonPage, IonRow } from "@ionic/react";
 import "./variables.css";
-import ConnectButton from "../components/ConnectButton";
 import Candidate from "../components/Candidate";
 import pedro from "../assets/PedroSanchez.jpg";
 import abascal from "../assets/abascal.jpg";
@@ -19,6 +18,10 @@ import luis from "../assets/luisCampos.jpg";
 import Menu from "../components/Menu";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+
+import { useEffect, useState } from "react";
+import Web3 from "web3";
+import VotingContract from "../../build/contracts/VotingContract.json";
 
 const Voter = () => {
     const cands = [
@@ -107,6 +110,22 @@ const Voter = () => {
             imageUrl: jose,
         },
     ];
+
+    const [candidates, setCandidates] = useState([]);
+
+    useEffect(() => {
+        console.log(getCandidates());
+    });
+
+    async function getCandidates() {
+        var Contract = require("web3-eth-contract");
+        // set provider for all later instances to use
+        Contract.setProvider("https://127.0.0.1:8546");
+        var contract = new Contract(VotingContract);
+
+        const totalCandidates = await contract.totalCandidates();
+        setCandidates(totalCandidates);
+    }
 
     return (
         <>
