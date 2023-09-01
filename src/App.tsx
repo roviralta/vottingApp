@@ -1,15 +1,20 @@
 import { Redirect, Route } from "react-router-dom";
-import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
+import {
+    IonApp,
+    IonRouterOutlet,
+    IonSplitPane,
+    setupIonicReact,
+} from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import Voter from "./pages/Voter";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Results from "./pages/Results";
 import Settings from "./pages/Settings";
-import Information from "./pages/Information";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
+import Menu from "./components/Menu";
 
 /* Optional CSS utils that can be commented out */
 /* import "@ionic/react/css/padding.css";
@@ -26,14 +31,12 @@ setupIonicReact();
 const App: React.FC = () => (
     <IonApp>
         <IonReactRouter>
+            <Menu />
             <IonRouterOutlet>
                 <Route exact path="/">
-                    <Redirect to="/home" />
-                </Route>
-
-                <Route exact path="/home">
                     <Home />
                 </Route>
+
                 <Route exact path="/voter">
                     <Voter />
                 </Route>
@@ -45,9 +48,6 @@ const App: React.FC = () => (
                 </Route>
                 <Route exact path="/settings">
                     <Settings />
-                </Route>
-                <Route exact path="/information">
-                    <Information />
                 </Route>
             </IonRouterOutlet>
         </IonReactRouter>

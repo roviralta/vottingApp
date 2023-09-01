@@ -11,7 +11,6 @@ const Home: React.FC = () => {
 
     return (
         <>
-            <Menu></Menu>
             <IonPage id="main-content">
                 <Header></Header>
                 <IonContent>

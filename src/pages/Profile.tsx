@@ -70,9 +70,7 @@ const Profile = () => {
             <IonContent>
                 <div className="profile-container">
                     <IonImg src={metamask}></IonImg>
-                    <h2 style={{ color: "#333" }}>
-                        Your MetaMask Wallet Information:
-                    </h2>
+                    <h2 style={{ color: "#333" }}>Your Wallet Information:</h2>
                     <b>Ethereum Account: </b>
 
                     <div

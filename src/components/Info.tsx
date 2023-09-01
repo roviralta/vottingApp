@@ -12,8 +12,9 @@ import "../pages/variables.css";
 interface Candidate {
     id: number;
     name: string;
-    description: string;
+    politic: string;
     imageUrl: string;
+    description: string;
 }
 
 interface MyModalProps {
@@ -27,18 +28,23 @@ const Info: React.FC<MyModalProps> = ({ isOpen, onClose, candidate }) => {
         <IonModal id="example-modal" isOpen={isOpen} onDidDismiss={onClose}>
             <IonHeader>
                 <IonToolbar>
-                    <IonTitle>Political party {candidate.description}</IonTitle>
+                    <IonTitle>Information</IonTitle>
                     <IonButton fill="clear" slot="end" onClick={onClose}>
                         Close
                     </IonButton>
                 </IonToolbar>
             </IonHeader>
             <IonContent>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Quas libero nam eaque ab commodi quis eveniet, a veritatis.
-                    Ipsa, eos sed. A amet sint voluptatibus, dolores ut tempora
-                    quos aliquam.
+                <h2 style={{ marginLeft: "10px" }}>{candidate.name}</h2>
+                <h4 style={{ marginLeft: "10px" }}>{candidate.politic}</h4>
+                <p
+                    style={{
+                        textAlign: "justify",
+                        marginLeft: "10px",
+                        marginRight: "10px",
+                    }}
+                >
+                    {candidate.description}
                 </p>
             </IonContent>
             <IonButton fill="clear">Vote</IonButton>

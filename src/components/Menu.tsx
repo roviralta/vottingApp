@@ -75,17 +75,6 @@ function Menu() {
                             ></IonIcon>
                             Information
                         </IonItem>
-                        <IonItem
-                            button
-                            onClick={() => history.push("/Settings")}
-                        >
-                            {" "}
-                            <IonIcon
-                                id="iconMenu"
-                                icon={settingsOutline}
-                            ></IonIcon>
-                            Settings
-                        </IonItem>
                     </IonList>
                 </IonContent>
             </IonMenu>

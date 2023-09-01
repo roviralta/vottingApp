@@ -13,8 +13,9 @@ import { useState, useEffect } from "react";
 interface Candidate {
     id: number;
     name: string;
-    description: string;
+    politic: string;
     imageUrl: string;
+    description: string;
 }
 
 function Candidate(props: { candidate: Candidate }) {
@@ -48,7 +49,7 @@ function Candidate(props: { candidate: Candidate }) {
                     <h2 className="candidate-name">
                         <b> {props.candidate.name}</b>
                     </h2>
-                    <h3>{props.candidate.description}</h3>
+                    <h3>{props.candidate.politic}</h3>
                 </IonCardContent>
                 <div
                     style={{
