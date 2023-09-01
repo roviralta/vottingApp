@@ -8,14 +8,17 @@ function Header() {
     return (
         <IonHeader>
             <IonToolbar id="toolbar">
-                <ConnectButton></ConnectButton>
-                <IonButton
-                    fill="clear"
-                    style={{ paddingLeft: "35%" }}
-                    onClick={() => history.push("/home")}
-                >
-                    Voting dApp
-                </IonButton>
+                <div style={{ display: "flex", flexDirection: "row" }}>
+                    {" "}
+                    <ConnectButton></ConnectButton>
+                    <IonButton
+                        fill="clear"
+                        onClick={() => history.push("/home")}
+                        style={{ paddingLeft: "37%" }}
+                    >
+                        Voting dApp
+                    </IonButton>
+                </div>
             </IonToolbar>
         </IonHeader>
     );

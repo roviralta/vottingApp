@@ -15,8 +15,6 @@ import roger from "../assets/rogerMontañola.jpg";
 import rufian from "../assets/rufian.jpeg";
 import yolanda from "../assets/yolandaDiaz.jpeg";
 import luis from "../assets/luisCampos.jpg";
-import Menu from "../components/Menu";
-import Footer from "../components/Footer";
 import Header from "../components/Header";
 
 import { useState } from "react";
@@ -141,7 +139,6 @@ const Voter = () => {
 
     return (
         <>
-            <Menu></Menu>
             <IonPage id="main-content">
                 <Header></Header>
                 <IonContent fullscreen>
@@ -162,7 +159,6 @@ const Voter = () => {
                         </IonRow>
                     </IonGrid>
                 </IonContent>
-                <Footer></Footer>
             </IonPage>
         </>
     );

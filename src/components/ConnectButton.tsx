@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import detectEthereumProvider from "@metamask/detect-provider";
-import { useHistory } from "react-router";
 import Account from "./Account";
-import { IonButton, IonMenuToggle } from "@ionic/react";
+import { IonButton } from "@ionic/react";
 
 function ConnectButton() {
     const [hasProvider, setHasProvider] = useState<boolean | null>(null);
@@ -63,11 +62,7 @@ function ConnectButton() {
             </div>
         );
     } else {
-        return (
-            <IonMenuToggle slot="start">
-                <Account wallet={wallet.accounts[0]}></Account>
-            </IonMenuToggle>
-        );
+        return <Account wallet={wallet.accounts[0]}></Account>;
     }
 }
 

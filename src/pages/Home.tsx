@@ -1,8 +1,6 @@
 import { IonContent, IonPage, IonFabButton, IonFab } from "@ionic/react";
 import "./variables.css";
 import { useHistory } from "react-router";
-import Menu from "../components/Menu";
-import Footer from "../components/Footer";
 import Header from "../components/Header";
 import React from "react";
 
@@ -49,7 +47,6 @@ const Home: React.FC = () => {
                         </IonFabButton>
                     </IonFab>
                 </IonContent>
-                <Footer></Footer>
             </IonPage>
         </>
     );

@@ -1,5 +1,14 @@
 import { Redirect, Route } from "react-router-dom";
-import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
+import {
+    IonApp,
+    IonIcon,
+    IonLabel,
+    IonRouterOutlet,
+    IonTabBar,
+    IonTabButton,
+    IonTabs,
+    setupIonicReact,
+} from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import Candidates from "./pages/Candidates";
 import Home from "./pages/Home";
@@ -7,9 +16,16 @@ import Profile from "./pages/Profile";
 import Results from "./pages/Results";
 import Information from "./pages/Information";
 
+import {
+    personCircleOutline,
+    informationCircleOutline,
+    barChartOutline,
+    ribbonOutline,
+} from "ionicons/icons";
+
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
-import Menu from "./components/Menu";
+import { triangle, ellipse, square } from "ionicons/icons";
 
 /* Optional CSS utils that can be commented out */
 /* import "@ionic/react/css/padding.css";
@@ -26,27 +42,52 @@ setupIonicReact();
 const App: React.FC = () => (
     <IonApp>
         <IonReactRouter>
-            <Menu />
-            <IonRouterOutlet>
-                <Route exact path="/">
-                    <Redirect to="/home" />
-                </Route>
-                <Route exact path="/home">
-                    <Home />
-                </Route>
-                <Route exact path="/candidates">
-                    <Candidates />
-                </Route>
-                <Route exact path="/profile">
-                    <Profile />
-                </Route>
-                <Route exact path="/results">
-                    <Results />
-                </Route>
-                <Route exact path="/information">
-                    <Information />
-                </Route>
-            </IonRouterOutlet>
+            <IonTabs>
+                <IonRouterOutlet>
+                    <Route exact path="/">
+                        <Redirect to="/home" />
+                    </Route>
+                    <Route exact path="/home">
+                        <Home />
+                    </Route>
+                    <Route exact path="/candidates">
+                        <Candidates />
+                    </Route>
+                    <Route exact path="/profile">
+                        <Profile />
+                    </Route>
+                    <Route exact path="/results">
+                        <Results />
+                    </Route>
+                    <Route exact path="/information">
+                        <Information />
+                    </Route>
+                </IonRouterOutlet>
+                <IonTabBar slot="bottom">
+                    <IonTabButton tab="tab1" href="/profile">
+                        <IonIcon
+                            aria-hidden="true"
+                            icon={personCircleOutline}
+                        />
+                        <IonLabel>Profile</IonLabel>
+                    </IonTabButton>
+                    <IonTabButton tab="tab2" href="/candidates">
+                        <IonIcon aria-hidden="true" icon={ribbonOutline} />
+                        <IonLabel>Candidates</IonLabel>
+                    </IonTabButton>
+                    <IonTabButton tab="tab3" href="/results">
+                        <IonIcon aria-hidden="true" icon={barChartOutline} />
+                        <IonLabel>Results</IonLabel>
+                    </IonTabButton>
+                    <IonTabButton tab="tab4" href="/information">
+                        <IonIcon
+                            aria-hidden="true"
+                            icon={informationCircleOutline}
+                        />
+                        <IonLabel>Information</IonLabel>
+                    </IonTabButton>
+                </IonTabBar>
+            </IonTabs>
         </IonReactRouter>
     </IonApp>
 );

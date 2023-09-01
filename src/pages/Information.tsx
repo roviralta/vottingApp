@@ -1,16 +1,6 @@
 // src/components/EleccionesPage.js
-import React from "react";
-import {
-    IonContent,
-    IonHeader,
-    IonPage,
-    IonTitle,
-    IonToolbar,
-    IonList,
-    IonItem,
-} from "@ionic/react";
+import { IonContent, IonPage, IonList, IonItem } from "@ionic/react";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 
 const EleccionesPage = () => {
     return (
@@ -111,7 +101,6 @@ const EleccionesPage = () => {
                     </IonItem>
                 </IonList>
             </IonContent>
-            <Footer></Footer>
         </IonPage>
     );
 };

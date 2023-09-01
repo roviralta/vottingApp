@@ -1,14 +1,7 @@
-import {
-    IonGrid,
-    IonRow,
-    IonCol,
-    IonCard,
-    IonCardContent,
-    IonButton,
-} from "@ionic/react";
+import { IonCard, IonCardContent } from "@ionic/react";
 import "../pages/variables.css";
 import Info from "../components/Info";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 interface Candidate {
     id: number;
