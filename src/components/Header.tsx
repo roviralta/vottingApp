@@ -11,7 +11,7 @@ function Header() {
                 <ConnectButton></ConnectButton>
                 <IonButton
                     fill="clear"
-                    style={{ paddingLeft: "41%", color: 'black' }}
+                    style={{ paddingLeft: "35%" }}
                     onClick={() => history.push("/home")}
                 >
                     Voting dApp
