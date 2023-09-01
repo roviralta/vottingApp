@@ -61,10 +61,7 @@
 }
 
 #toolbar {
-    height: 65px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 70px;
 }
 
 #candidateCard {

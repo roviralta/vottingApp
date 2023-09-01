@@ -21,6 +21,7 @@ import {
     informationCircleOutline,
     barChartOutline,
     ribbonOutline,
+    homeOutline,
 } from "ionicons/icons";
 
 /* Core CSS required for Ionic components to work properly */
@@ -64,12 +65,9 @@ const App: React.FC = () => (
                     </Route>
                 </IonRouterOutlet>
                 <IonTabBar slot="bottom">
-                    <IonTabButton tab="tab1" href="/profile">
-                        <IonIcon
-                            aria-hidden="true"
-                            icon={personCircleOutline}
-                        />
-                        <IonLabel>Profile</IonLabel>
+                    <IonTabButton tab="tab1" href="/home">
+                        <IonIcon aria-hidden="true" icon={homeOutline} />
+                        <IonLabel>Home</IonLabel>
                     </IonTabButton>
                     <IonTabButton tab="tab2" href="/candidates">
                         <IonIcon aria-hidden="true" icon={ribbonOutline} />

@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import detectEthereumProvider from "@metamask/detect-provider";
 import Account from "./Account";
-import { IonButton } from "@ionic/react";
+import { IonButton, IonIcon, IonLabel } from "@ionic/react";
+import metamask from "../assets/MetaMask_Fox.svg.png";
+import { personCircleOutline } from "ionicons/icons";
 
 function ConnectButton() {
     const [hasProvider, setHasProvider] = useState<boolean | null>(null);
@@ -46,8 +48,6 @@ function ConnectButton() {
             method: "eth_requestAccounts",
         });
         updateWallet(accounts);
-        /*         history.push("/home");
-         */
     };
 
     if (wallet.accounts.length <= 0) {
@@ -55,14 +55,24 @@ function ConnectButton() {
             <div slot="start">
                 {window.ethereum?.isMetaMask &&
                     wallet.accounts.length < 1 /* Updated */ && (
-                        <IonButton onClick={handleConnect}>
-                            Connect MetaMask
+                        <IonButton fill="clear" onClick={handleConnect}>
+                            <img id="icon" src={metamask}></img>
                         </IonButton>
                     )}
             </div>
         );
     } else {
-        return <Account wallet={wallet.accounts[0]}></Account>;
+        return (
+            <IonButton fill="clear" href="/profile">
+                <IonIcon
+                    style={{
+                        fontSize: "40px",
+                        color: "black",
+                    }}
+                    icon={personCircleOutline}
+                />
+            </IonButton>
+        );
     }
 }
 
