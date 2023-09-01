@@ -14,6 +14,7 @@ import {
     settingsOutline,
     informationCircleOutline,
     barChartOutline,
+    ribbonOutline,
 } from "ionicons/icons";
 import "../pages/variables.css";
 import { useHistory } from "react-router";
@@ -45,7 +46,7 @@ function Menu() {
                     <IonList>
                         <IonItem
                             button
-                            onClick={() => history.push("/Profile")}
+                            onClick={() => history.push("/profile")}
                         >
                             <IonIcon
                                 id="iconMenu"
@@ -55,7 +56,17 @@ function Menu() {
                         </IonItem>
                         <IonItem
                             button
-                            onClick={() => history.push("/Results")}
+                            onClick={() => history.push("/candidates")}
+                        >
+                            <IonIcon
+                                id="iconMenu"
+                                icon={ribbonOutline}
+                            ></IonIcon>
+                            Candidates
+                        </IonItem>
+                        <IonItem
+                            button
+                            onClick={() => history.push("/results")}
                         >
                             {" "}
                             <IonIcon
@@ -66,7 +77,7 @@ function Menu() {
                         </IonItem>
                         <IonItem
                             button
-                            onClick={() => history.push("/Information")}
+                            onClick={() => history.push("/information")}
                         >
                             {" "}
                             <IonIcon

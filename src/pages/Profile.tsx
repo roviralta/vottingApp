@@ -5,6 +5,7 @@ import { formatBalance, formatChainAsNum } from "../components/index";
 import detectEthereumProvider from "@metamask/detect-provider";
 import "./variables.css";
 import metamask from "../assets/MetaMask_Fox.svg.png";
+import Footer from "../components/Footer";
 
 const Profile = () => {
     const [hasProvider, setHasProvider] = useState<boolean | null>(null);
@@ -98,6 +99,7 @@ const Profile = () => {
                     </div>
                 </div>
             </IonContent>
+            <Footer></Footer>
         </IonPage>
     );
 };

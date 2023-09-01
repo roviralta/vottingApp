@@ -1,12 +1,21 @@
-import { IonHeader, IonToolbar } from "@ionic/react";
+import { IonButton, IonHeader, IonToolbar } from "@ionic/react";
 import ConnectButton from "./ConnectButton";
+import { useHistory } from "react-router";
 
 function Header() {
+    const history = useHistory();
+
     return (
         <IonHeader>
             <IonToolbar id="toolbar">
                 <ConnectButton></ConnectButton>
-                <h2 style={{ paddingLeft: "41%" }}>Voting dApp</h2>
+                <IonButton
+                    fill="clear"
+                    style={{ paddingLeft: "41%", color: 'black' }}
+                    onClick={() => history.push("/home")}
+                >
+                    Voting dApp
+                </IonButton>
             </IonToolbar>
         </IonHeader>
     );

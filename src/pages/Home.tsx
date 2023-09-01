@@ -42,7 +42,9 @@ const Home: React.FC = () => {
                             right: "5%",
                         }}
                     >
-                        <IonFabButton onClick={() => history.push("/voter")}>
+                        <IonFabButton
+                            onClick={() => history.push("/candidates")}
+                        >
                             VOTE!
                         </IonFabButton>
                     </IonFab>
