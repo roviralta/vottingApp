@@ -21,6 +21,7 @@
         "@ionic/react": "^7.0.0",
         "@ionic/react-router": "^7.0.0",
         "@metamask/detect-provider": "^2.0.0",
+        "@nomicfoundation/hardhat-toolbox": "^3.0.0",
         "@truffle/contract": "^4.6.29",
         "@types/react-router": "^5.1.20",
         "@types/react-router-dom": "^5.3.3",

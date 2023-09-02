@@ -8,10 +8,8 @@ import {
     IonToolbar,
 } from "@ionic/react";
 import "../pages/variables.css";
-import VotingContractABI from "../../build/contracts/VotingContract.json"; // Importa el ABI del contrato
+import VotingContractABI from "../../artifacts/contracts/VotingContract.sol/VotingContract.json"; // Importa el ABI del contrato
 import { ethers } from "ethers";
-import web3 from "web3";
-import { log } from "console";
 
 interface Candidate {
     id: number;
@@ -30,7 +28,7 @@ interface MyModalProps {
 const Info: React.FC<MyModalProps> = ({ isOpen, onClose, candidate }) => {
     const contractAddress = "0xbAb222a9FF5b2c5A18B772172a56D9f50cD17779";
 
-    const interactWithContract = async () => {
+    /* const interactWithContract = async () => {
         try {
             // Check if MetaMask or another Ethereum provider is installed
             if (window.ethereum) {
@@ -51,7 +49,7 @@ const Info: React.FC<MyModalProps> = ({ isOpen, onClose, candidate }) => {
                 );
 
                 // Interact with the contract
-                const message = await contract.getNumber();
+                const message = await contract.speak();
                 console.log("Current Greeting:", message);
             } else {
                 console.error(
@@ -61,7 +59,40 @@ const Info: React.FC<MyModalProps> = ({ isOpen, onClose, candidate }) => {
         } catch (error) {
             console.error("Error interacting with the contract:", error);
         }
-    };
+    }; */
+
+    async function speak() {
+        try {
+            // Replace with the actual contract address
+            const contractAddress =
+                "0xc4F05781605A558dE4534CdCcdaBC80d9966b763";
+            const [account] = await window.ethereum.request({
+                method: "eth_requestAccounts",
+            });
+            const provider = new ethers.JsonRpcProvider(
+                "HTTP://127.0.0.1:7545"
+            );
+            const signer = await provider.getSigner();
+
+            const VotingContract = new ethers.Contract(
+                contractAddress,
+                VotingContractABI.abi,
+                signer
+            );
+
+            console.log(VotingContract);
+
+            const tx = await VotingContract.speak();
+            console.log(tx);
+
+            alert("Number set successfully!");
+        } catch (error) {
+            console.error("Error setting number:", error);
+            alert(
+                "Error setting number. Please check the console for details."
+            );
+        }
+    }
 
     return (
         <IonModal id="example-modal" isOpen={isOpen} onDidDismiss={onClose}>
@@ -86,7 +117,7 @@ const Info: React.FC<MyModalProps> = ({ isOpen, onClose, candidate }) => {
                     {candidate.description}
                 </p>
             </IonContent>
-            <IonButton fill="clear" onClick={interactWithContract}>
+            <IonButton fill="clear" onClick={speak}>
                 Vote
             </IonButton>
         </IonModal>
