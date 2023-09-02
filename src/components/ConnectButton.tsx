@@ -52,7 +52,7 @@ function ConnectButton() {
 
     if (wallet.accounts.length <= 0) {
         return (
-            <div slot="start">
+            <div>
                 {window.ethereum?.isMetaMask &&
                     wallet.accounts.length < 1 /* Updated */ && (
                         <IonButton fill="clear" onClick={handleConnect}>
@@ -66,7 +66,7 @@ function ConnectButton() {
             <IonButton fill="clear" href="/profile">
                 <IonIcon
                     style={{
-                        fontSize: "40px",
+                        fontSize: "45px",
                         color: "black",
                     }}
                     icon={personCircleOutline}

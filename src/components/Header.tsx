@@ -21,13 +21,16 @@ function Header() {
                 <IonGrid>
                     <IonRow>
                         <IonCol
-                            size="1"
-                            style={{ display: "flex", alignItems: "center" }}
+                            size="2"
+                            style={{
+                                display: "flex",
+                                alignItems: "center",
+                            }}
                         >
                             <ConnectButton />
                         </IonCol>
                         <IonCol
-                            size="10"
+                            size="9"
                             style={{
                                 display: "flex",
                                 alignItems: "center",
