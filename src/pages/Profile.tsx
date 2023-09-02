@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { IonPage, IonContent, IonImg } from "@ionic/react";
 import Header from "../components/Header";
-import { formatBalance, formatChainAsNum } from "../components/index";
+import { formatBalance, formatChainAsNum } from "../logic/index";
 import detectEthereumProvider from "@metamask/detect-provider";
 import "./variables.css";
 import metamask from "../assets/MetaMask_Fox.svg.png";

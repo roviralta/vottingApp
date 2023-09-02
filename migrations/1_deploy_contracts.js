@@ -1,3 +1,5 @@
+const { log } = require("console");
+
 const VotingContract = artifacts.require("VotingContract");
 
 module.exports = function (deployer) {

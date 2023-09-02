@@ -1,17 +1,17 @@
 import { IonCard, IonCardContent } from "@ionic/react";
 import "../pages/variables.css";
-import Info from "../components/Info";
+import Info from "./Info";
 import { useState } from "react";
 
-interface Candidate {
+/* interface Candidate {
     id: number;
     name: string;
     politic: string;
     imageUrl: string;
     description: string;
-}
+} */
 
-function Candidate(props: { candidate: Candidate }) {
+function Candidate(props: any) {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const openModal = () => {

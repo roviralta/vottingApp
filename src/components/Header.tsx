@@ -1,20 +1,7 @@
-import {
-    IonButton,
-    IonCol,
-    IonGrid,
-    IonHeader,
-    IonIcon,
-    IonRow,
-    IonToolbar,
-} from "@ionic/react";
+import { IonCol, IonGrid, IonHeader, IonRow, IonToolbar } from "@ionic/react";
 import ConnectButton from "./ConnectButton";
-import { useHistory } from "react-router";
-
-import { settingsOutline } from "ionicons/icons";
 
 function Header() {
-    const history = useHistory();
-
     return (
         <IonHeader>
             <IonToolbar id="toolbar">
@@ -35,6 +22,7 @@ function Header() {
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
+                                marginTop: "1px",
                             }}
                         >
                             <h3 style={{ color: "black" }}>Voting dApp</h3>
