@@ -4,6 +4,7 @@ import Candidate from "../components/Candidate";
 import { cands } from "../assets/data";
 import Header from "../components/Header";
 
+
 import { useState } from "react";
 
 const Voter = () => {

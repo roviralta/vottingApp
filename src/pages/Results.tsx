@@ -1,52 +1,91 @@
 // src/components/EleccionesPage.js
-import { IonContent, IonPage } from "@ionic/react";
+import {
+    IonButton,
+    IonContent,
+    IonIcon,
+    IonItem,
+    IonLabel,
+    IonList,
+    IonPage,
+} from "@ionic/react";
 import Header from "../components/Header";
 import { getCandidates } from "../logic/funcs";
 import { useEffect, useState } from "react";
+import { refreshOutline } from "ionicons/icons";
 
-export const options = {
-    responsive: true,
-    plugins: {
-        legend: {
-            position: "top" as const,
-        },
-        title: {
-            display: true,
-            text: "Chart.js Bar Chart",
-        },
-    },
-};
+interface Candidate {
+    id: number;
+    name: string;
+    politic: string;
+    voteCount: number;
+}
 
 const Results = () => {
-    const [candidates, setCandidates] = useState([]);
+    const [candidates, setCandidates] = useState<Candidate[]>([]);
+
+    const fetchCandidates = async () => {
+        try {
+            const result = await getCandidates();
+            setCandidates(result);
+        } catch (error) {
+            console.error("Error fetching candidates:", error);
+        }
+    };
 
     useEffect(() => {
-        const fetchCandidates = async () => {
-            try {
-                const result = await getCandidates();
-                setCandidates(result);
-            } catch (error) {
-                console.error("Error fetching candidates:", error);
-            }
-        };
-
         fetchCandidates();
     }, []);
+
+    function getWinner() {
+        let votes = 0;
+        let winner = "";
+        candidates.map((cand) => {
+            if (cand.voteCount > votes) {
+                winner = cand.name;
+            }
+        });
+
+        return winner;
+    }
 
     return (
         <IonPage>
             <Header></Header>
             <IonContent>
-                <div>
-                    <h1 style={{ textAlign: "center" }}>Resultados en vivo:</h1>
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center",
+                    }}
+                >
+                    <h1 style={{ textAlign: "center" }}>Resultados en vivo</h1>
+
+                    <h3 style={{ textAlign: "center" }}>
+                        Ganador teorico: {getWinner()}
+                    </h3>
+                    <IonButton
+                        fill="clear"
+                        style={{ justifyItems: "center" }}
+                        onClick={fetchCandidates}
+                    >
+                        <IonIcon icon={refreshOutline}></IonIcon>Refresh
+                    </IonButton>
                     <br></br>
                     <br></br>
-                    {candidates.map((candidate: any) => (
-                        <li key={candidate.id} style={{ marginLeft: "50px" }}>
-                            <strong>{candidate.politic}</strong> - Votos:
-                            {candidate.voteCount}
-                        </li>
-                    ))}
+                    <IonList>
+                        {candidates.map((candidate) => (
+                            <IonItem>
+                                <IonLabel>
+                                    <h2>
+                                        {candidate.name} ({candidate.politic})
+                                    </h2>
+                                    <p>Votos: {candidate.voteCount}</p>
+                                </IonLabel>
+                            </IonItem>
+                        ))}
+                    </IonList>
                 </div>
             </IonContent>
         </IonPage>

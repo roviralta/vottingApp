@@ -2,7 +2,6 @@ import { IonContent, IonPage, IonFabButton, IonFab } from "@ionic/react";
 import "./variables.css";
 import { useHistory } from "react-router";
 import Header from "../components/Header";
-import React from "react";
 
 const Home = () => {
     const history = useHistory();
@@ -13,22 +12,22 @@ const Home = () => {
                 <Header></Header>
                 <IonContent>
                     <div className="voting-container">
-                        <h1 className="header">2023 Elections!</h1>
-                        <p>Vote for your preferred candidate. You decide!</p>
+                        <h1 className="header">Elecciones 2023</h1>
+                        <p>Vota por su candidato favorito. Usted decide!</p>
                     </div>
                     <div className="description-container">
                         <p className="description">
-                            This app allows you to exercise your right to vote
-                            in the general elections quickly and easily. There
-                            are no more excuses for not participating in the
-                            future of your country. Vote for your preferred
-                            candidates from the comfort of your home, without
-                            queuing in long lines at the polling stations.
-                            Remember that every vote counts and can make a
-                            difference in the results. Don't worry about the
-                            security of your data; our platform guarantees the
-                            confidentiality and integrity of your vote, trust us
-                            and exercise your power as a citizen!
+                            Esta aplicación le permite ejercer su derecho de
+                            voto en las elecciones generales de forma rápida y
+                            sencilla. En ya no hay excusas para no participar en
+                            el futuro de tu país. Vota a tus candidatos
+                            candidatos preferidos desde la comodidad de tu casa,
+                            sin largas colas en los colegios electorales.
+                            Recuerda que cada voto cuenta y puede en los
+                            resultados. No te preocupes por la seguridad de tus
+                            datos; nuestra plataforma garantiza la
+                            confidencialidad e integridad de tu voto, confía en
+                            nosotros ¡y ejerce tu poder como ciudadano!
                         </p>
                     </div>
                     <IonFab

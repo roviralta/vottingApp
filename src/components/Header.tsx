@@ -25,7 +25,7 @@ function Header() {
                                 marginTop: "1px",
                             }}
                         >
-                            <h3 style={{ color: "black" }}>Voting dApp</h3>
+                            <h3>Voting dApp</h3>
                         </IonCol>
                     </IonRow>
                 </IonGrid>
