@@ -45,6 +45,7 @@ const Results = () => {
                 setMaxVotes(cand.voteCount);
             }
         });
+        return winner;
     }
 
     return (
@@ -62,7 +63,7 @@ const Results = () => {
                     <h1 style={{ textAlign: "center" }}>Resultados en vivo</h1>
 
                     <h3 style={{ textAlign: "center" }}>
-                        Ganador teorico: {winner}
+                        Ganador teorico: {getWinner()}
                     </h3>
                     <IonButton
                         fill="clear"
