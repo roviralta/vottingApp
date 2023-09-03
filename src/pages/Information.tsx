@@ -64,7 +64,6 @@ const EleccionesPage = () => {
                         <ul>
                             <li>Ser ciudadano español.</li>
                             <li>Tener una cuenta de metamask</li>
-                            <li>Estar inscrito en el censo electoral.</li>
                         </ul>
                     </IonItem>
                     <IonItem>

@@ -22,6 +22,8 @@ interface Candidate {
 
 const Results = () => {
     const [candidates, setCandidates] = useState<Candidate[]>([]);
+    const [winner, setWinner] = useState("");
+    const [maxVotes, setMaxVotes] = useState(0);
 
     const fetchCandidates = async () => {
         try {
@@ -37,15 +39,12 @@ const Results = () => {
     }, []);
 
     function getWinner() {
-        let votes = 0;
-        let winner = "";
         candidates.map((cand) => {
-            if (cand.voteCount > votes) {
-                winner = cand.name;
+            if (cand.voteCount > maxVotes) {
+                setWinner(cand.name);
+                setMaxVotes(cand.voteCount);
             }
         });
-
-        return winner;
     }
 
     return (
@@ -63,7 +62,7 @@ const Results = () => {
                     <h1 style={{ textAlign: "center" }}>Resultados en vivo</h1>
 
                     <h3 style={{ textAlign: "center" }}>
-                        Ganador teorico: {getWinner()}
+                        Ganador teorico: {winner}
                     </h3>
                     <IonButton
                         fill="clear"
