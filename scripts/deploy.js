@@ -4,7 +4,12 @@ async function main() {
     console.log("Deploying contracts with the account:", deployer.address);
 
     const VotingContract = await ethers.getContractFactory("VotingContract");
-    const contract = await VotingContract.deploy();
+    const contract = await VotingContract.deploy([
+        "Mark",
+        "Mike",
+        "Henry",
+        "Rock",
+    ]);
 
     console.log("Contract deployed at:", contract.address);
 }
