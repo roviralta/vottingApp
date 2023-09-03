@@ -3,14 +3,6 @@ import "../pages/variables.css";
 import Info from "./Info";
 import { useState } from "react";
 
-/* interface Candidate {
-    id: number;
-    name: string;
-    politic: string;
-    imageUrl: string;
-    description: string;
-} */
-
 function Candidate(props: any) {
     const [isModalOpen, setIsModalOpen] = useState(false);
 

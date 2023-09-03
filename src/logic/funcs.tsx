@@ -1,4 +1,9 @@
-const cands = [
+import VotingContractABI from "../../artifacts/contracts/VotingContract.sol/VotingContract.json"; // Importa el ABI del contrato
+import { ethers } from "ethers";
+
+const contractAddress = "0x85461EeD54Cf2741BD290396297b2af1d163009b";
+
+export const cands = [
     {
         id: 0,
         name: "Pedro Sanchez",
@@ -113,34 +118,51 @@ const cands = [
     },
 ];
 
-async function main() {
-    const candidateNames = [];
-    const candidatePolitic = [];
-
-    for (const candidate of cands) {
-        candidateNames.push(candidate.name);
-        candidatePolitic.push(candidate.politic);
-    }
-
-    console.log(candidateNames);
-    console.log(candidatePolitic);
-
-    const [deployer] = await ethers.getSigners();
-
-    console.log("Deploying contracts with the account:", deployer.address);
-
-    const VotingContract = await ethers.getContractFactory("VotingContract");
-    const contract = await VotingContract.deploy(
-        candidateNames,
-        candidatePolitic
+export async function vote(id: any) {
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const signer = await provider.getSigner();
+    const contract = new ethers.Contract(
+        contractAddress,
+        VotingContractABI.abi,
+        signer
     );
 
-    console.log("Contract deployed at:", contract.address);
+    const tx = await contract.vote(id);
+    await tx.wait();
+
+    getCandidates();
 }
 
-main()
-    .then(() => process.exit(0))
-    .catch((error) => {
-        console.error(error);
-        process.exit(1);
-    });
+export async function canVote() {
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const signer = await provider.getSigner();
+    const contract = new ethers.Contract(
+        contractAddress,
+        VotingContractABI.abi,
+        signer
+    );
+    const voteStatus = await contract.hasVoted(await signer.getAddress());
+}
+
+export async function getCandidates() {
+    const provider = new ethers.BrowserProvider(window.ethereum);
+    const signer = await provider.getSigner();
+    const contract = new ethers.Contract(
+        contractAddress,
+        VotingContractABI.abi,
+        signer
+    );
+    const candidatesList = await contract.getAllVotesOfCandiates();
+    const formatCandidates = candidatesList.map(
+        (candidate: any, index: any) => {
+            return {
+                index: index,
+                name: candidate.name,
+                politic: candidate.politic,
+                voteCount: Number(candidate.voteCount.toString()),
+            };
+        }
+    );
+    //console.log(formatCandidates);
+    return formatCandidates;
+}

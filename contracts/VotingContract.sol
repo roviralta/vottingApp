@@ -7,7 +7,8 @@ contract VotingContract {
     struct Candidate {
         uint id;
         string name;
-        uint256 voteCount;
+        string politic;
+        uint voteCount;
     }
 
     address owner;
@@ -17,24 +18,24 @@ contract VotingContract {
     uint public candidatesCount = 0;
 
     //constructor with an array of candidates
-    constructor(string[] memory _candidateNames) {
-    for (uint256 i = 0; i < _candidateNames.length; i++) {
+    constructor(string[] memory _candidateNames, string[] memory _politics) {
+    for (uint i = 0; i < _candidateNames.length; i++) {
         candidates.push(Candidate({
             id: candidatesCount,
             name: _candidateNames[i],
+            politic: _politics[i],
             voteCount: 0
         }));
 
        candidatesCount++;
     }
-     owner = msg.sender;
+    owner = msg.sender;
+    
     }
-
 
     // register a vote
     function vote(uint256 _candidateIndex) public {
-        require(!hasVoted[msg.sender], "You have already voted.");
-        require(_candidateIndex < candidates.length, "Invalid candidate index.");
+        //require(!hasVoted[msg.sender], "You have already voted.");
 
         candidates[_candidateIndex].voteCount++;
         hasVoted[msg.sender] = true;
@@ -43,4 +44,6 @@ contract VotingContract {
     function getAllVotesOfCandiates() public view returns (Candidate[] memory){
         return candidates;
     }
+
+    
 }

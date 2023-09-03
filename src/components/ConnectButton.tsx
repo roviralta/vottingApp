@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import detectEthereumProvider from "@metamask/detect-provider";
-import Account from "./Account";
 import { IonButton, IonIcon, IonLabel } from "@ionic/react";
 import metamask from "../assets/MetaMask_Fox.svg.png";
 import { personCircleOutline } from "ionicons/icons";
+import { ethers } from "ethers";
 
 function ConnectButton() {
     const [hasProvider, setHasProvider] = useState<boolean | null>(null);
     const initialState = { accounts: [] };
     const [wallet, setWallet] = useState(initialState);
+    const [account, setAccount] = useState("");
+    const [provider, setProvider] = useState("");
 
     useEffect(() => {
         const refreshAccounts = (accounts: any) => {
@@ -57,6 +59,7 @@ function ConnectButton() {
                     wallet.accounts.length < 1 /* Updated */ && (
                         <IonButton fill="clear" onClick={handleConnect}>
                             <img id="icon" src={metamask}></img>
+                            <p>{account}</p>
                         </IonButton>
                     )}
             </div>
