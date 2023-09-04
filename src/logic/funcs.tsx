@@ -1,6 +1,7 @@
-import VotingContractABI from "../../artifacts/contracts/VotingContract.sol/VotingContract.json"; // Importa el ABI del contrato
+import VotingContractABI from "../../artifacts/contracts/VotingContract.sol/VotingContract.json"; // Importa el ABI del contracte
 import { ethers } from "ethers";
 
+//direccio del contracte creat, canviar quan es desplegui un de nou
 const contractAddress = "0x85461EeD54Cf2741BD290396297b2af1d163009b";
 
 export const cands = [
@@ -118,6 +119,7 @@ export const cands = [
     },
 ];
 
+//funcio per a realitzar el vot a un candidat especific
 export async function vote(id: any) {
     const provider = new ethers.BrowserProvider(window.ethereum);
     const signer = await provider.getSigner();
@@ -133,17 +135,7 @@ export async function vote(id: any) {
     getCandidates();
 }
 
-export async function canVote() {
-    const provider = new ethers.BrowserProvider(window.ethereum);
-    const signer = await provider.getSigner();
-    const contract = new ethers.Contract(
-        contractAddress,
-        VotingContractABI.abi,
-        signer
-    );
-    const voteStatus = await contract.hasVoted(await signer.getAddress());
-}
-
+//retorna els candidats de les eleccions
 export async function getCandidates() {
     const provider = new ethers.BrowserProvider(window.ethereum);
     const signer = await provider.getSigner();
@@ -163,6 +155,5 @@ export async function getCandidates() {
             };
         }
     );
-    //console.log(formatCandidates);
     return formatCandidates;
 }

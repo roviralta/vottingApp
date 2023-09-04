@@ -35,7 +35,6 @@ contract VotingContract {
 
     // register a vote
     function vote(uint256 _candidateIndex) public {
-        //require(!hasVoted[msg.sender], "You have already voted.");
 
         candidates[_candidateIndex].voteCount++;
         hasVoted[msg.sender] = true;

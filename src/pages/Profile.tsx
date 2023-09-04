@@ -5,7 +5,6 @@ import { formatBalance, formatChainAsNum } from "../logic/index";
 import detectEthereumProvider from "@metamask/detect-provider";
 import "./variables.css";
 import metamask from "../assets/MetaMask_Fox.svg.png";
-import { ethers } from "ethers";
 
 const Profile = () => {
     const [hasProvider, setHasProvider] = useState<boolean | null>(null);
@@ -15,7 +14,6 @@ const Profile = () => {
         chainId: "",
     }; /* Updated */
     const [wallet, setWallet] = useState(initialState);
-    const [account, setAccount] = useState("");
 
     useEffect(() => {
         const refreshAccounts = (accounts: any) => {

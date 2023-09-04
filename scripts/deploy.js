@@ -113,29 +113,25 @@ const cands = [
     },
 ];
 
+//funcion main fa el deploy del contracte
+
 async function main() {
     const candidateNames = [];
     const candidatePolitic = [];
 
+    //afageix els noms i partits politics pel constructor
     for (const candidate of cands) {
         candidateNames.push(candidate.name);
         candidatePolitic.push(candidate.politic);
     }
 
-    console.log(candidateNames);
-    console.log(candidatePolitic);
-
     const [deployer] = await ethers.getSigners();
-
-    console.log("Deploying contracts with the account:", deployer.address);
 
     const VotingContract = await ethers.getContractFactory("VotingContract");
     const contract = await VotingContract.deploy(
         candidateNames,
         candidatePolitic
     );
-
-    console.log("Contract deployed at:", contract.address);
 }
 
 main()
